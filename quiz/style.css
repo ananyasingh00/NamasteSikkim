@@ -1,0 +1,177 @@
+/* Background Setup */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: url('monastry_pic.png') no-repeat center center fixed;
+  background-size: cover;
+  background-color: #FBE6C2; /* fallback */
+  color: #AC0D0D;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Main Container Overlay */
+.container {
+  background-color: rgba(251, 230, 194, 0.6); /* lighter cream for better image visibility */
+  padding: 20px;
+  border-radius: 16px;
+  width: 95%;
+  max-width: 1000px;
+}
+
+/* Title and Subtitle */
+.title-glow {
+  font-size: 2.5em;
+  color: #AC0D0D;
+  margin-bottom: 20px;
+}
+
+.subtitle-glow {
+  font-size: 1.5em;
+  color: #AC0D0D;
+  margin-bottom: 20px;
+}
+
+/* Monastery Selection Box */
+.monastery-box {
+  background-color: rgba(251, 230, 194, 0.5); /* semi-transparent box */
+  border: 2px solid #F0C929;
+  border-radius: 16px;
+  padding: 20px;
+  width: 300px;
+  margin: 0 auto 30px auto;
+  text-align: center;
+}
+
+/* Ripple Button List */
+.ripple-button-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Ripple Buttons */
+.ripple-btn {
+  background-color: rgba(240, 201, 41, 0.85);
+  color: #AC0D0D;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1em;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 250px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.ripple-btn:hover {
+  background-color: rgba(244, 139, 41, 0.85);
+  transform: scale(1.05);
+}
+
+.ripple-btn::after {
+  content: "";
+  position: absolute;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  transform: scale(0);
+  pointer-events: none;
+}
+
+.ripple-btn:active::after {
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  transform: translate(-50%, -50%) scale(1);
+  animation: ripple 0.6s linear;
+}
+
+@keyframes ripple {
+  to {
+    transform: translate(-50%, -50%) scale(2.5);
+    opacity: 0;
+  }
+}
+
+/* Quiz Box Styling */
+.quiz-box {
+  background-color: rgba(251, 230, 194, 0.5); /* lighter overlay */
+  border: 2px solid #F0C929;
+  border-radius: 16px;
+  padding: 30px;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.status {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #AC0D0D;
+}
+
+.question-area h2 {
+  margin-bottom: 20px;
+  color: #AC0D0D;
+}
+
+#options {
+  list-style: none;
+  padding: 0;
+}
+
+#options li {
+  background-color: rgba(240, 201, 41, 0.85);
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #AC0D0D;
+  font-weight: bold;
+  border: 2px solid #F48B29;
+  transition: transform 0.2s, background-color 0.3s;
+}
+
+#options li:hover {
+  transform: scale(1.05);
+  background-color: rgba(244, 139, 41, 0.85);
+}
+
+#feedback {
+  margin-top: 20px;
+  font-size: 1.1em;
+  color: #AC0D0D;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1em;
+  color: #FBE6C2;
+  background-color: #AC0D0D;
+  border: 2px solid #F0C929;
+  transition: transform 0.2s, background-color 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+  background-color: #F48B29;
+}

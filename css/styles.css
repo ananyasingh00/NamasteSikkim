@@ -589,6 +589,30 @@ body {
   width: 100%;
 }
 
+/* Logo + Title */
+.logo-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-right: 20px;
+}
+
+.logo-title .logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ff9933; /* Orange border */
+}
+
+.logo-title .project-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #006400; /* Deep green */
+  font-family: 'Segoe UI', sans-serif;
+}
+
+
 .nav-links {
   list-style: none;
   display: flex;
@@ -610,7 +634,7 @@ body {
 }
 
 .nav-actions .nav-button {
-  background-color: #c49a6c;
+  background-color: #ff7700;
   color: #fff;
   padding: 0.6rem 1.2rem;
   border-radius: 6px;
