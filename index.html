@@ -8,9 +8,23 @@
   <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="css/login.css" />
 </head>
 <body>
 
+<header class="main-header">
+  <nav class="nav-bar">
+    <ul class="nav-links">
+      <li><a href="#map">Explore</a></li>
+      <li><a href="#virtual-tours">Virtual Tours</a></li>
+      <li><a href="#calendar">Activities</a></li>
+      <li><a href="#archives">Events</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="login.html" class="nav-button">Start Journey</a>
+    </div>
+  </nav>
+</header>
 
   <!-- Language Switcher -->
   <select id="languageSwitcher">
@@ -29,9 +43,10 @@
       Immerse yourself in 200+ centuries-old monasteries through virtual tours, interactive maps, and rich digital archives preserving Himalayan Buddhist heritage.
     </p>
     <div class="hero-actions">
-      <button class="cta-button">Start Virtual Tour</button>
-      <input type="text" class="search-bar" placeholder="Search Monasteries..." />
-    </div>
+    <button class="cta-button">Start Virtual Tour</button>
+    <input type="text" class="search-bar" placeholder="Search Monasteries..." />
+  </div>
+
     <div class="hero-stats">
       <div><strong>200+</strong><span>Monasteries</span></div>
       <div><strong>17th Century</strong><span>Origins</span></div>
@@ -59,6 +74,7 @@
   <h2>Sikkim Festival Calendar</h2>
   <div class="festival-grid">
     <div class="festival-card major">
+      <img src="losar.jpg" alt="losar" class="tour-img">
       <h3>Losar Festival</h3>
       <p><strong>Location:</strong> Rumtek Monastery</p>
       <p><strong>Date:</strong> Feb 10–12, 2024</p>
@@ -67,6 +83,7 @@
       <button>Reserve Spot</button>
     </div>
     <div class="festival-card featured">
+      <img src="buddha.webp" alt="buddha jayanti" class="tour-img">
       <h3>Buddha Jayanti</h3>
       <p><strong>Location:</strong> Sikkim Monastery</p>
       <p><strong>Date:</strong> May 15, 2024</p>
@@ -75,6 +92,7 @@
       <button>Reserve Spot</button>
     </div>
     <div class="festival-card cultural">
+      <img src="drukpa.jpg" alt="drukpa" class="tour-img">
       <h3>Drukpa Kunley Festival</h3>
       <p><strong>Location:</strong> Pemayangtse Monastery</p>
       <p><strong>Date:</strong> March 25, 2024</p>
@@ -83,6 +101,7 @@
       <button>Share</button>
     </div>
     <div class="festival-card religious">
+      <img src="saga.jpg" alt="saga dawa" class="tour-img">
       <h3>Saga Dawa</h3>
       <p><strong>Location:</strong> Sikkim Monastery</p>
       <p><strong>Date:</strong> June 2024</p>
@@ -101,6 +120,7 @@
 
     <!-- Rumtek Monastery -->
     <div class="tour-card">
+      <img src="rumtek.jpg" alt="Rumtek Monastery" class="tour-img">
       <h3>Rumtek Monastery</h3>
       <p><strong>Location:</strong> East Sikkim</p>
       <p><strong>Duration:</strong> 45 min</p>
@@ -115,6 +135,7 @@
 
     <!-- Pemayangtse Monastery -->
     <div class="tour-card">
+      <img src="pema.jpg" alt="Pemayangtse Monastery" class="tour-img">
       <h3>Pemayangtse Monastery</h3>
       <p><strong>Location:</strong> Pelling, West Sikkim</p>
       <p><strong>Duration:</strong> 35 min</p>
@@ -129,6 +150,7 @@
 
     <!-- Tashiding Monastery -->
     <div class="tour-card">
+      <img src="tashi.jpg" alt="Tashiding Monastery" class="tour-img">
       <h3>Tashiding Monastery</h3>
       <p><strong>Location:</strong> West Sikkim</p>
       <p><strong>Duration:</strong> 40 min</p>
@@ -147,6 +169,7 @@
     <a href="https://your360host.com/all-monasteries" class="explore-button" target="_blank">Explore All 200+ Monasteries</a>
   </div>
 </section>
+
 
 
 
