@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MonasteryNet</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+
+
+  <!-- Language Switcher -->
+  <select id="languageSwitcher">
+    <option value="en">English</option>
+    <option value="hi">हिन्दी</option>
+    <option value="ne">नेपाली</option>
+    <option value="bn">বাংলা</option>
+  </select>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-content">
+    <h2 class="location">Sikkim, India</h2>
+    <h1 class="headline">Discover Sacred Monasteries of Sikkim</h1>
+    <p class="subtext">
+      Immerse yourself in 200+ centuries-old monasteries through virtual tours, interactive maps, and rich digital archives preserving Himalayan Buddhist heritage.
+    </p>
+    <div class="hero-actions">
+      <button class="cta-button">Start Virtual Tour</button>
+      <input type="text" class="search-bar" placeholder="Search Monasteries..." />
+    </div>
+    <div class="hero-stats">
+      <div><strong>200+</strong><span>Monasteries</span></div>
+      <div><strong>17th Century</strong><span>Origins</span></div>
+      <div><strong>360°</strong><span>Virtual Tours</span></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Interactive Monastery Map -->
+<section class="map-section">
+  <h2>Interactive Monastery Map</h2>
+  <div class="map-layout">
+    <div id="sikkimMap"></div>
+    <div class="featured-list">
+      <h3>Featured Monasteries</h3>
+      <div id="monasteryCards"></div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Festival Calendar -->
+<section class="calendar-section">
+  <h2>Sikkim Festival Calendar</h2>
+  <div class="festival-grid">
+    <div class="festival-card major">
+      <h3>Losar Festival</h3>
+      <p><strong>Location:</strong> Rumtek Monastery</p>
+      <p><strong>Date:</strong> Feb 10–12, 2024</p>
+      <p>Traditional dances, prayers, and cultural performances.</p>
+      <span class="tag">Major Festival</span>
+      <button>Reserve Spot</button>
+    </div>
+    <div class="festival-card featured">
+      <h3>Buddha Jayanti</h3>
+      <p><strong>Location:</strong> Sikkim Monastery</p>
+      <p><strong>Date:</strong> May 15, 2024</p>
+      <p>Commemoration of Buddha’s birth with special rituals.</p>
+      <span class="tag">Featured</span>
+      <button>Reserve Spot</button>
+    </div>
+    <div class="festival-card cultural">
+      <h3>Drukpa Kunley Festival</h3>
+      <p><strong>Location:</strong> Pemayangtse Monastery</p>
+      <p><strong>Date:</strong> March 25, 2024</p>
+      <p>Folk dances celebrating the divine madman’s legacy.</p>
+      <span class="tag">Cultural Festival</span>
+      <button>Share</button>
+    </div>
+    <div class="festival-card religious">
+      <h3>Saga Dawa</h3>
+      <p><strong>Location:</strong> Sikkim Monastery</p>
+      <p><strong>Date:</strong> June 2024</p>
+      <p>Community offerings and rituals throughout the month.</p>
+      <span class="tag">Religious Ceremony</span>
+      <button>Reserve Spot</button>
+    </div>
+  </div>
+</section>
+
+
+<!-- Featured Virtual Tours -->
+<section class="virtual-tours">
+  <h2>Featured Virtual Tours</h2>
+  <div class="tour-grid">
+
+    <!-- Rumtek Monastery -->
+    <div class="tour-card">
+      <h3>Rumtek Monastery</h3>
+      <p><strong>Location:</strong> East Sikkim</p>
+      <p><strong>Duration:</strong> 45 min</p>
+      <p>The largest monastery in Sikkim, home to the Karma Kagyu and center of the Kagyu lineage.</p>
+      <div class="tags">
+        <span>Sacred Sites</span>
+        <span>Buddhist Monasteries</span>
+      </div>
+      <p class="price">₹ 200.00 – ₹ 400.00</p>
+      <a href="https://maps.app.goo.gl/bcaEt2GgxXjBzf2R8" class="tour-button" target="_blank">Start Virtual Tour</a>
+    </div>
+
+    <!-- Pemayangtse Monastery -->
+    <div class="tour-card">
+      <h3>Pemayangtse Monastery</h3>
+      <p><strong>Location:</strong> Pelling, West Sikkim</p>
+      <p><strong>Duration:</strong> 35 min</p>
+      <p>One of the oldest monasteries in Sikkim, known for its rare Buddhist sculptures and ancient murals.</p>
+      <div class="tags">
+        <span>Buddhist Sculptures</span>
+        <span>Ancient Murals</span>
+      </div>
+      <p class="price">₹ 200.00 – ₹ 400.00</p>
+      <a href="https://maps.app.goo.gl/PyyqvJZgRgFCMdS87" class="tour-button" target="_blank">Start Virtual Tour</a>
+    </div>
+
+    <!-- Tashiding Monastery -->
+    <div class="tour-card">
+      <h3>Tashiding Monastery</h3>
+      <p><strong>Location:</strong> West Sikkim</p>
+      <p><strong>Duration:</strong> 40 min</p>
+      <p>Sacred site where prayers are believed to cleanse sins and bestow blessings.</p>
+      <div class="tags">
+        <span>Holy Site</span>
+        <span>Sacred Chortens</span>
+      </div>
+      <p class="price">₹ 200.00 – ₹ 400.00</p>
+      <a href="https://maps.app.goo.gl/LgYNx36fDbXsYDet7" class="tour-button" target="_blank">Start Virtual Tour</a>
+    </div>
+
+  </div>
+
+  <div class="explore-all">
+    <a href="https://your360host.com/all-monasteries" class="explore-button" target="_blank">Explore All 200+ Monasteries</a>
+  </div>
+</section>
+
+
+
+
+<!-- Digital Archives Section -->
+<section class="archives-section">
+  <h2>Digital Archives</h2>
+  <div class="archive-grid">
+    <div class="archive-card">
+      <h3>Chants & Rituals</h3>
+      <a href="http://127.0.0.1:3000/chants/index.html" class="archive-button" target="_blank">Explore Chants</a>
+    </div>
+    <div class="archive-card">
+      <h3>Monk Profiles</h3>
+      <p>Meet the spiritual leaders and learn about their journeys and teachings.</p>
+      <button>View Profiles</button>
+    </div>
+    <div class="archive-card">
+      <h3>Historical Timeline</h3>
+      <p>Trace the evolution of monastic traditions across centuries.</p>
+      <button>View History</button>
+    </div>
+    <div class="archive-card">
+      <h3>Interviews & Stories</h3>
+      <p>Watch interviews and read stories from monks, pilgrims, and historians.</p>
+      <button>Watch Now</button>
+    </div>
+  </div>
+</section>
+
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/i18next@23.5.1/dist/umd/i18next.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/directory.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/calendar.js"></script>
+  <script src="js/i18n.js"></script>
+</body>
+</html>
