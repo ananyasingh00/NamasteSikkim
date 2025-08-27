@@ -9,7 +9,7 @@ body {
 .hero {
   position: relative;
   height: 100vh;
-  background-image: url('assets/buddha-statue-natural-environment.jpg'); /* Replace with your actual image path */
+  background-image: url('assets/monastry9.png'); /* Replace with your actual image path */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -34,7 +34,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url('si.jpg');
+  background-image: url('back.png');
 }
 
 .hero-content {

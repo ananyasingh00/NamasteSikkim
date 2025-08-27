@@ -1,0 +1,158 @@
+:root{
+  --beige:#97520e;
+  --orange:#c19177;
+  --green:#d6e1d6;
+  --red:#E25B4A;
+  --soft-blue:#0e4276;
+  --event-blue:#4a7cd8;
+  --glass-bg: rgba(30, 27, 27, 0.22);
+  --card-width: min(920px, 94vw);
+  --radius: 18px;
+  --shadow: 0 8px 30px rgba(17,24,39,0.25);
+  --glass-border: rgba(255,255,255,0.25);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  min-height:100%;
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.15));
+  color:#db9259;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+}
+
+/* Background image from user's drive */
+.app-bg{
+  position:fixed;
+  inset:0;
+  background-image: url("Culture1.png");
+  background-size:cover;
+  background-position:center;
+  filter: saturate(0.95) contrast(0.95);
+  z-index:-2;
+}
+.app-bg::after{
+  content:"";
+  position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(0,0,0,0.28), rgba(255,255,255,0.02));
+}
+
+/* Glass card */
+.glass{
+  backdrop-filter: blur(8px) saturate(110%);
+  -webkit-backdrop-filter: blur(8px) saturate(110%);
+  background: var(--glass-bg);
+  border-radius: var(--radius);
+  border: 1px solid var(--glass-border);
+}
+
+/* Header */
+.app-header{
+  width: var(--card-width);
+  margin-bottom:16px;
+  padding:12px 16px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  box-shadow:var(--shadow);
+}
+.app-header .left{display:flex;flex-direction:column;gap:8px}
+#title{margin:0;font-size:1.05rem;color:var(--beige);text-shadow:0 1px 0 rgba(0,0,0,0.15)}
+.controls{display:flex;gap:8px;align-items:center}
+select#lang{
+  background:rgba(255,255,255,0.12);
+  border:0;padding:8px 10px;border-radius:10px;color:#052034;
+  box-shadow:0 4px 12px rgba(2,6,23,0.08);
+  cursor:pointer;
+}
+
+/* View switch */
+.view-switch{position:relative}
+#viewBtn{
+  background:linear-gradient(180deg,var(--beige), #c31010);
+  border-radius:10px;padding:8px 12px;border:0;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,0.08);
+  font-weight:600;
+}
+.dropdown{
+  position:absolute;right:0;top:46px;list-style:none;margin:0;padding:6px;border-radius:12px;width:140px;
+  background:rgba(255,255,255,0.95);box-shadow:0 18px 40px rgba(2,6,23,0.12);transform-origin:top right;opacity:0;pointer-events:none;
+  transition:all 240ms cubic-bezier(.2,.9,.3,1);
+}
+.view-switch.open .dropdown{opacity:1;pointer-events:auto;transform:translateY(6px)}
+.dropdown li{padding:8px 10px;border-radius:8px;cursor:pointer}
+.dropdown li:hover{background:var(--soft-blue)}
+
+/* Nav buttons */
+.nav button{background:transparent;border:0;padding:8px 10px;border-radius:10px;cursor:pointer;font-weight:700}
+.nav button#today{background:linear-gradient(90deg,var(--orange), var(--green));color:#fff;box-shadow:0 8px 20px rgba(255,128,72,0.16)}
+
+/* Calendar Card */
+.center-stage{display:flex;align-items:center;justify-content:center;width:100%}
+.calendar-card{
+  width:var(--card-width);
+  padding:18px;
+  box-shadow:var(--shadow);
+  transition:transform .28s ease, box-shadow .28s ease;
+}
+.card-header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+#monthYear{margin:0;font-size:1.25rem;color:var(--beige);letter-spacing:0.4px}
+.sub-header{color:rgba(2,6,23,0.45);font-size:0.95rem}
+
+/* Calendar grid - monthly */
+.calendar-container{display:grid;gap:10px;transition:all .36s cubic-bezier(.2,.9,.3,1)}
+.view-month{grid-template-columns:repeat(7,1fr)}
+.weekdays{display:contents}
+.weekday{
+  text-align:center;padding:8px 6px;font-size:0.85rem;color:rgba(2,6,23,0.6)
+}
+
+/* day tile */
+.day{
+  min-height:78px;padding:10px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  display:flex;flex-direction:column;justify-content:space-between;transition:transform .22s ease, box-shadow .22s ease;
+  border:1px solid rgba(255,255,255,0.06);backdrop-filter: blur(6px)
+}
+.day:hover{transform:translateY(-6px);box-shadow:0 18px 30px rgba(2,10,20,0.12)}
+.day .date{font-weight:700;color:#052034}
+.day .label{font-size:0.85rem;color:rgba(2,6,23,0.55)}
+
+/* Normal vs Event tiles */
+.day.normal{background:linear-gradient(180deg,var(--soft-blue), rgba(255,255,255,0.05))}
+.day.event{
+  background:linear-gradient(180deg,var(--event-blue), #0b3a87);
+  color:white;
+  box-shadow:0 8px 28px rgba(17,40,130,0.28);
+  border:1px solid rgba(255,255,255,0.12)
+}
+.event .event-badge{background:rgba(255,255,255,0.06);padding:6px;border-radius:8px;font-size:0.82rem;box-shadow:0 6px 16px rgba(18,60,138,0.12)}
+
+/* weekly view */
+.view-week{grid-template-columns:repeat(7,1fr)}
+.week-row{display:grid;grid-template-columns:repeat(7,1fr);gap:10px}
+
+/* yearly view simplified */
+.view-year{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.month-mini{padding:10px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.04),rgba(0,0,0,0.02));min-height:120px}
+
+/* Modal */
+.modal-overlay{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:50;background:rgba(2,6,23,0.4)}
+.modal{width:min(720px,94vw);padding:18px;border-radius:14px;box-shadow:0 30px 60px rgba(2,6,23,0.45);color:#052034}
+.modal-close{position:absolute;right:22px;top:18px;background:transparent;border:0;font-size:1rem;cursor:pointer}
+.hidden{display:none}
+
+/* responsive */
+@media (max-width:720px){
+  .app-header{flex-direction:column;align-items:flex-start;padding:12px}
+  .calendar-card{padding:14px}
+  .day{min-height:66px}
+  .view-year{grid-template-columns:repeat(2,1fr)}
+}

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Monastery360 | Login</title>
+  <title data-i18n="login.title">Monastery360 | Login</title>
   <style>
     /* === General Reset === */
     * { margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', sans-serif;}
@@ -18,6 +18,10 @@
 
     /* Back link */
     .back-link { position:absolute; top:10px; left:15px; font-size:14px; color:#ff9933; text-decoration:none; }
+
+    /* Language switcher small */
+    .lang-switch { position:absolute; top:8px; right:60px; }
+    .lang-switch select { padding:4px 6px; border-radius:6px; border:1px solid #ccc; background:#fff; }
 
     /* Logo */
     .logo { text-align:center; margin-bottom:1.5rem; }
@@ -58,47 +62,62 @@
 
   <div class="modal" id="loginModal">
     <div class="login-wrapper">
-      <a href="index.html" class="back-link">← Back to Home</a>
-      <button class="close-btn" id="closeModal">&times;</button>
+      <a href="index.html" class="back-link" data-i18n="login.back">← Back to Home</a>
+
+      <!-- Language switcher (reuses global i18n bootstrap) -->
+      <div class="lang-switch">
+        <select id="languageSwitcher" aria-label="Language switcher">
+          <option value="en">English</option>
+          <option value="hi">हिन्दी</option>
+          <option value="ne">नेपाली</option>
+          <option value="bn">বাংলা</option>
+        </select>
+      </div>
+
+      <button class="close-btn" id="closeModal" aria-label="Close">&times;</button>
 
       <!-- Logo -->
       <div class="logo">
         <div class="logo-icon">M</div>
-        <h1>Monastery360</h1>
-        <p class="tagline">Join your spiritual journey</p>
+        <h1 data-i18n="project.title">Monastery360</h1>
+        <p class="tagline" data-i18n="login.tagline">Join your spiritual journey</p>
       </div>
 
       <!-- Role Selection -->
       <div class="tab-buttons role-tabs">
-        <button id="touristTab" class="active">Tourist</button>
-        <button id="guideTab">Guide</button>
+        <button id="touristTab" class="active" data-i18n="role.tourist">Tourist</button>
+        <button id="guideTab" data-i18n="role.guide">Guide</button>
       </div>
 
       <!-- Tourist Area -->
       <div id="touristArea" class="role-area active">
         <div class="tab-buttons">
-          <button id="signInTab" class="active">Sign In</button>
-          <button id="createTab">Create Account</button>
+          <button id="signInTab" class="active" data-i18n="login.signIn">Sign In</button>
+          <button id="createTab" data-i18n="login.create">Create Account</button>
         </div>
         <div class="form-area">
           <!-- Sign In -->
           <form id="signInForm" class="active">
-            <h2>Welcome</h2>
-            <p class="form-desc">Sign in to access virtual tours and your progress.</p>
-            <label>Email</label><input type="email" placeholder="Enter your email" required>
-            <label>Password</label><input type="password" placeholder="Enter your password" required>
-            <button type="submit" class="submit-btn">Sign In</button>
+            <h2 data-i18n="login.welcome">Welcome</h2>
+            <p class="form-desc" data-i18n="login.signInDesc">Sign in to access virtual tours and your progress.</p>
+            <label data-i18n="login.emailLabel">Email</label>
+            <input type="email" placeholder="Enter your email" data-i18n-placeholder="login.emailPlaceholder" required>
+            <label data-i18n="login.passwordLabel">Password</label>
+            <input type="password" placeholder="Enter your password" data-i18n-placeholder="login.passwordPlaceholder" required>
+            <button type="submit" class="submit-btn" data-i18n="login.signInBtn">Sign In</button>
           </form>
 
           <!-- Create Account -->
           <form id="createForm">
-            <h2>Create Account</h2>
-            <p class="form-desc">Begin your journey with Monastery360.</p>
-            <label>Email</label><input type="email" placeholder="Enter your email" required>
-            <label>Password</label><input type="password" placeholder="Create a password" required>
-            <button type="submit" class="submit-btn">Create Account</button>
+            <h2 data-i18n="login.createHeading">Create Account</h2>
+            <p class="form-desc" data-i18n="login.createDesc">Begin your journey with Monastery360.</p>
+            <label data-i18n="login.emailLabel">Email</label>
+            <input type="email" placeholder="Enter your email" data-i18n-placeholder="login.emailPlaceholder" required>
+            <label data-i18n="login.passwordLabel">Password</label>
+            <input type="password" placeholder="Create a password" data-i18n-placeholder="login.passwordCreatePlaceholder" required>
+            <button type="submit" class="submit-btn" data-i18n="login.createBtn">Create Account</button>
             <div class="extra-option">
-              <button type="button" id="applyFromTourist">Apply as a Guide</button>
+              <button type="button" id="applyFromTourist" data-i18n="login.applyAsGuide">Apply as a Guide</button>
             </div>
           </form>
         </div>
@@ -107,39 +126,46 @@
       <!-- Guide Area -->
       <div id="guideArea" class="role-area" style="display:none;">
         <div class="tab-buttons">
-          <button id="guideSignInTab" class="active">Sign In</button>
-          <button id="applyGuideTab">Apply as Guide</button>
+          <button id="guideSignInTab" class="active" data-i18n="login.signIn">Sign In</button>
+          <button id="applyGuideTab" data-i18n="login.applyForm">Apply as Guide</button>
         </div>
         <div class="form-area">
           <!-- Guide Sign In -->
           <form id="guideSignInForm" class="active">
-            <h2>Guide Login</h2>
-            <p class="form-desc">Sign in to manage tours and connect with visitors.</p>
-            <label>Email</label><input type="email" placeholder="Enter your email" required>
-            <label>Password</label><input type="password" placeholder="Enter your password" required>
-            <button type="submit" class="submit-btn">Sign In</button>
+            <h2 data-i18n="login.guideLoginHeading">Guide Login</h2>
+            <p class="form-desc" data-i18n="login.guideLoginDesc">Sign in to manage tours and connect with visitors.</p>
+            <label data-i18n="login.emailLabel">Email</label>
+            <input type="email" placeholder="Enter your email" data-i18n-placeholder="login.emailPlaceholder" required>
+            <label data-i18n="login.passwordLabel">Password</label>
+            <input type="password" placeholder="Enter your password" data-i18n-placeholder="login.passwordPlaceholder" required>
+            <button type="submit" class="submit-btn" data-i18n="login.signInBtn">Sign In</button>
           </form>
 
           <!-- Guide Application -->
           <form id="applyGuideForm">
-            <h2>Apply as a Guide</h2>
-            <p class="form-desc">Local residents of Sikkim can apply to become guides.</p>
-            <label>Full Name</label><input type="text" placeholder="Enter your name" required>
-            <label>Email</label><input type="email" placeholder="Enter your email" required>
-            <label>Phone Number</label><input type="tel" placeholder="Enter your phone number" required>
-            <label>Languages Spoken</label><input type="text" placeholder="English, Hindi, Nepali" required>
-            <label>Experience (Years)</label><input type="number" placeholder="e.g. 3" min="0" required>
-            <label>Short Bio</label><textarea placeholder="Tell us about yourself..." rows="3" required></textarea>
-            <button type="submit" class="submit-btn">Apply Now</button>
+            <h2 data-i18n="login.applyHeading">Apply as a Guide</h2>
+            <p class="form-desc" data-i18n="login.applyDesc">Local residents of Sikkim can apply to become guides.</p>
+            <label data-i18n="login.fullName">Full Name</label><input type="text" placeholder="Enter your name" data-i18n-placeholder="login.fullNamePlaceholder" required>
+            <label data-i18n="login.emailLabel">Email</label><input type="email" placeholder="Enter your email" data-i18n-placeholder="login.emailPlaceholder" required>
+            <label data-i18n="login.phone">Phone Number</label><input type="tel" placeholder="Enter your phone number" data-i18n-placeholder="login.phonePlaceholder" required>
+            <label data-i18n="login.languages">Languages Spoken</label><input type="text" placeholder="English, Hindi, Nepali" data-i18n-placeholder="login.languagesPlaceholder" required>
+            <label data-i18n="login.experience">Experience (Years)</label><input type="number" placeholder="e.g. 3" min="0" data-i18n-placeholder="login.experiencePlaceholder" required>
+            <label data-i18n="login.bio">Short Bio</label><textarea placeholder="Tell us about yourself..." data-i18n-placeholder="login.bioPlaceholder" rows="3" required></textarea>
+            <button type="submit" class="submit-btn" data-i18n="login.applyBtn">Apply Now</button>
           </form>
         </div>
       </div>
 
-      <p class="disclaimer">By continuing, you agree to our guidelines and privacy practices.</p>
+      <p class="disclaimer" data-i18n="login.disclaimer">By continuing, you agree to our guidelines and privacy practices.</p>
     </div>
   </div>
 
+  <!-- load i18next + site i18n bootstrap before inline scripts so languageSwitcher is wired -->
+  <script src="https://cdn.jsdelivr.net/npm/i18next@23.5.1/dist/umd/i18next.min.js"></script>
+  <script src="js/i18n.js"></script>
+
   <script>
+    // existing interaction scripts — unchanged behavior
     const loginModal = document.getElementById("loginModal");
     const closeModal = document.getElementById("closeModal");
 
@@ -209,7 +235,7 @@
       applyGuideTab.click();
     };
 
-    // Open modal when "Start Journey" button is clicked
+    // Open modal when "Start Journey" button is clicked (keeps existing behavior)
     const startJourneyButtons = document.querySelectorAll(".cta-button, .nav-button");
     startJourneyButtons.forEach(btn => {
       btn.onclick = (e) => {

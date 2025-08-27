@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,24 +10,21 @@
   <div class="container">
     <h1 class="title-glow">SIKKIM MONASTERY EXPLORER 🏯</h1>
 
-   <!-- Monastery Selection Box -->
-<!-- Monastery Selection Box -->
-<div id="monastery-select" class="monastery-box">
-  <h2 class="subtitle-glow">Choose a Monastery</h2>
-  <div id="monastery-list" class="ripple-button-list">
-    <button class="ripple-btn">Rumtek Monastery</button>
-    <button class="ripple-btn">Pemayangtse Monastery</button>
-    <button class="ripple-btn">Enchey Monastery</button>
-    <button class="ripple-btn">Dubdi Monastery</button>
-    <button class="ripple-btn">Tashiding Monastery</button>
-    <button class="ripple-btn">Phodong Monastery</button>
-    <button class="ripple-btn">Ralang Monastery</button>
-    <button class="ripple-btn">Lingdum Monastery</button>
-    <button class="ripple-btn">Kartok Monastery</button>
-    <button class="ripple-btn">Rinchenpong Monastery</button>
-  </div>
-</div>
-
+    <!-- Monastery Selection Box -->
+    <div id="monastery-select">
+      <div id="monastery-list" class="ripple-button-list">
+        <button class="ripple-btn" data-bg="sample/images/rumtek.png">Rumtek Monastery</button>
+        <button class="ripple-btn" data-bg="sample/images/pemayangtse.png">Pemayangtse Monastery</button>
+        <button class="ripple-btn" data-bg="sample/images/enchey.png">Enchey Monastery</button>
+        <button class="ripple-btn" data-bg="sample/images/dubdi.png">Dubdi Monastery</button>
+        <button class="ripple-btn" data-bg="sample/images/tashiding.png">Tashiding Monastery</button>
+        <button class="ripple-btn" data-bg="sample/images/phodong.png">Phodong Monastery</button>
+        <button class="ripple-btn" data-bg="sample/images/Ralang.png">Ralang Monastery</button>
+        <button class="ripple-btn" data-bg="sample/images/lingdum.png">Lingdum Monastery</button>
+        <button class="ripple-btn" data-bg="sample/images/kartok.png">Kartok Monastery</button>
+        <button class="ripple-btn" data-bg="sample/images/Rinchen choling.png">Rinchenpong Monastery</button>
+      </div>
+    </div>
 
     <!-- Quiz Box -->
     <div id="quiz-box" class="quiz-box" style="display:none;">
@@ -36,14 +32,16 @@
         <span id="progress"></span>
         <span id="coins">💰 Coins: 0</span>
       </div>
-      <div class="question-area">
-        <h2 id="question">Loading question...</h2>
-        <ul id="options"></ul>
+      <div class="question-box">
+        <div class="question-area">
+          <h2 id="question">Loading question...</h2>
+          <ul id="options"></ul>
+        </div>
+        <div id="feedback"></div>
       </div>
-      <div id="feedback"></div>
       <div class="actions">
-        <button id="backBtn" onclick="goBack()">🔙 Back</button>
-        <button id="nextBtn" onclick="nextQuestion()">Next ➡️</button>
+        <button id="backBtn" type="button">🔙 Back</button>
+        <button id="nextBtn" type="button">Next ➡️</button>
       </div>
     </div>
   </div>

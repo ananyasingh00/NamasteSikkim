@@ -8,17 +8,15 @@
     body {
       margin: 0;
       font-family: "Segoe UI", sans-serif;
-      background: url("s.jpg") no-repeat center center fixed; /* replace with your image */
+      background: url("s.jpg") no-repeat center center fixed;
       background-size: cover;
       color: #fff;
     }
-
     .chants-section {
       position: relative;
       padding: 3rem 2rem;
       text-align: center;
     }
-
     .chants-section::before {
       content: "";
       position: absolute;
@@ -27,7 +25,6 @@
       backdrop-filter: blur(5px);
       z-index: 0;
     }
-
     .chants-title {
       position: relative;
       font-size: 2.5rem;
@@ -36,7 +33,6 @@
       color: #ffd27f;
       text-shadow: 2px 2px 10px rgba(0,0,0,0.6);
     }
-
     .chant-card {
       position: relative;
       max-width: 900px;
@@ -51,18 +47,15 @@
       z-index: 1;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-
     .chant-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
     }
-
     .chant-card h3 {
       font-size: 1.8rem;
       margin-bottom: 1rem;
       color: #ffd27f;
     }
-
     .chant-card p {
       margin: 0.5rem 0;
       line-height: 1.6;
@@ -71,6 +64,13 @@
 </head>
 <body>
 
+<!-- Screen Reader Button -->
+<button id="screenReaderBtn" title="Read this page" style="position:fixed;top:20px;right:76px;z-index:1000;background:#33ccff;border:none;border-radius:50%;width:48px;height:48px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.15);">
+  <span style="font-size:24px;color:#fff;">🔊</span>
+</button>
+<button id="pauseReaderBtn" title="Pause/Resume" style="position:fixed;top:20px;right:20px;z-index:1000;background:#33ccff;border:none;border-radius:50%;width:48px;height:48px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.15);">
+  <span style="font-size:24px;color:#fff;">⏸</span>
+</button>
   <section class="chants-section">
     <h2 class="chants-title">Sacred Chants of Sikkim Monasteries</h2>
 
@@ -156,5 +156,51 @@
 
   </section>
 
+  <!-- Screen Reader Script -->
+  <script>
+let isPaused = false;
+let utter = null;
+
+document.getElementById('screenReaderBtn').onclick = function() {
+  function getTextFromElement(element) {
+    if (element.nodeType === Node.TEXT_NODE) {
+      return element.textContent;
+    }
+    if (element.nodeType !== Node.ELEMENT_NODE || ['SCRIPT','STYLE','NOSCRIPT'].includes(element.tagName)) {
+      return '';
+    }
+    const style = window.getComputedStyle(element);
+    if (style.display === 'none' || style.visibility === 'hidden') return '';
+    let text = '';
+    for (let child of element.childNodes) {
+      text += getTextFromElement(child) + ' ';
+    }
+    return text;
+  }
+  const pageText = getTextFromElement(document.body).replace(/\s+/g, ' ').trim();
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+    utter = new SpeechSynthesisUtterance(pageText);
+    utter.rate = 1;
+    window.speechSynthesis.speak(utter);
+    isPaused = false;
+  } else {
+    alert('Sorry, your browser does not support speech synthesis.');
+  }
+};
+
+document.getElementById('pauseReaderBtn').onclick = function() {
+  if (!('speechSynthesis' in window)) return;
+  if (window.speechSynthesis.speaking) {
+    if (!isPaused) {
+      window.speechSynthesis.pause();
+      isPaused = true;
+    } else {
+      window.speechSynthesis.resume();
+      isPaused = false;
+    }
+  }
+};
+</script>
 </body>
 </html>
