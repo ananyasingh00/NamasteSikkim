@@ -21,12 +21,13 @@
     </div>
 
     <ul class="nav-links">
-      <li><a href="#explore">Explore</a></li>
-      <li><a href="#tours">Virtual Tours</a></li>
-      <li><a href="#calendar">Events</a></li>
-      <li><a href="#archives">Digital Archive</a></li>
-      <li><a href="/quiz">Quiz</a></li>
-    </ul>
+  <li><a href="#explore">Explore</a></li>
+  <li><a href="#tours">Virtual Tours</a></li>
+  <li><a href="#calendar">Events</a></li>
+  <li><a href="#archives">Digital Archive</a></li>
+  <li><a href="/quiz">Quiz</a></li>
+</ul>
+
 
   
     <div class="nav-actions">
@@ -35,54 +36,103 @@
   </nav>
 </header>
 
-
-  <!-- Language Switcher -->
-  <select id="languageSwitcher">
-    <option value="en">English</option>
-    <option value="hi">हिन्दी</option>
-    <option value="ne">नेपाली</option>
-    <option value="bn">বাংলা</option>
-  </select>
-
 <!-- Hero Section -->
-<section class="hero">
-  <div class="hero-content">
-    <h2 class="location">Sikkim, India</h2>
-    <h1 class="headline">Discover Sacred Monasteries of Sikkim</h1>
-    <p class="subtext">
-      Immerse yourself in 200+ centuries-old monasteries through virtual tours, interactive maps, and rich digital archives preserving Himalayan Buddhist heritage.
+<header class="hero-header">
+  <div class="hero-overlay-left">
+    <h1>Sikkim</h1>
+    <p>
+      Discover the Monasteries of <span class="highlight">Sikkim.</span>
     </p>
-    <div class="hero-actions">
-    <button class="cta-button">Start</button>
-    <input type="text" class="search-bar" placeholder="Search Monasteries..." />
+    <button>Start Exploring</button>
   </div>
+</header>
 
-    <div class="hero-stats">
-      <div><strong>200+</strong><span>Monasteries</span></div>
-      <div><strong>17th Century</strong><span>Origins</span></div>
-      <div><strong>360°</strong><span>Virtual Tours</span></div>
-    </div>
-  </div>
-</section>
 
 
 <!-- Interactive Monastery Map -->
-<section class="map-section">
+<section class="map-section" id="explore">
   <h2>Interactive Monastery Map</h2>
   <div class="map-layout">
     <div id="sikkimMap"></div>
     <div class="featured-list">
-      <h3>Featured Monasteries</h3>
-      <div id="monasteryCards"></div>
+
+      <div class="monastery-card">
+        <div class="monastery-info">
+          <h3>Rumtek Monastery</h3>
+          <p>East Sikkim – Largest monastery, home to the Karma Kagyu lineage.</p>
+          <button onclick="focusOnMonastery('Rumtek Monastery')">View on Map</button>
+        </div>
+        <img src="rum.jpg" alt="Rumtek Monastery" class="monastery-image" />
+      </div>
+
+      <div class="monastery-card">
+        <div class="monastery-info">
+          <h3>Pemayangtse Monastery</h3>
+          <p>West Sikkim – One of the oldest monasteries with rare sculptures.</p>
+          <button onclick="focusOnMonastery('Pemayangtse Monastery')">View on Map</button>
+        </div>
+        <img src="pema.jpg" alt="Pemayangtse Monastery" class="monastery-image" />
+      </div>
+
+      <div class="monastery-card">
+        <div class="monastery-info">
+          <h3>Tashiding Monastery</h3>
+          <p>West Sikkim – Sacred site for prayers and blessings.</p>
+          <button onclick="focusOnMonastery('Tashiding Monastery')">View on Map</button>
+        </div>
+        <img src="tashi.jpg" alt="Tashiding Monastery" class="monastery-image" />
+      </div>
+
+      <div class="monastery-card">
+        <div class="monastery-info">
+          <h3>Enchey Monastery</h3>
+          <p>Gangtok – Known for its vibrant festivals and architecture.</p>
+          <button onclick="focusOnMonastery('Enchey Monastery')">View on Map</button>
+        </div>
+        <img src="enchey.jpg" alt="Enchey Monastery" class="monastery-image" />
+      </div>
+
+      <div class="monastery-card">
+        <div class="monastery-info">
+          <h3>Dubdi Monastery</h3>
+          <p>Northeast Sikkim – The oldest monastery in Sikkim, founded in 1701.</p>
+          <button onclick="focusOnMonastery('Dubdi Monastery')">View on Map</button>
+        </div>
+        <img src="dubdi.webp" alt="Dubdi Monastery" class="monastery-image" />
+      </div>
+
+      <div class="monastery-card">
+        <div class="monastery-info">
+          <h3>Phodong Monastery</h3>
+          <p>North Sikkim – Houses ancient scriptures and murals.</p>
+          <button onclick="focusOnMonastery('Phodong Monastery')">View on Map</button>
+        </div>
+        <img src="phodong.jpg" alt="Phodong Monastery" class="monastery-image" />
+      </div>
+
+      <div class="monastery-card">
+        <div class="monastery-info">
+          <h3>Ralang Monastery</h3>
+          <p>Southeast Sikkim – Known for its scenic location and festivals.</p>
+          <button onclick="focusOnMonastery('Ralong Monastery')">View on Map</button>
+        </div>
+        <img src="ralang.webp" alt="Ralang Monastery" class="monastery-image" />
+      </div>
+
     </div>
   </div>
 </section>
 
 
   <!-- Festival Calendar -->
-<section class="calendar-section">
+<section class="calendar-section" id="calendar">
   <h2>Sikkim Festival Calendar</h2>
-  <a href="http://127.0.0.1:3000/calendar/index.html" target="_blank" style="display:inline-block; padding:10px 20px; background-color:#4a148c; color:#fff; text-decoration:none; border-radius:5px; font-weight:bold;">View calendar</a>
+  <div style="display: flex; justify-content: center; margin-top: 20px;">
+  <a href="http://127.0.0.1:3000/calendar/index.html" target="_blank" 
+     style="background-color:#0c11b4; color:#fff; text-decoration:none; border-radius:5px; font-weight:bold; padding: 10px 20px;">
+     View Calendar
+  </a>
+</div>
 
   <div class="festival-grid">
     <div class="festival-card major">
@@ -92,7 +142,6 @@
       <p><strong>Date:</strong> Feb 10–12, 2024</p>
       <p>Traditional dances, prayers, and cultural performances.</p>
       <span class="tag">Major Festival</span>
-      <button>Reserve Spot</button>
     </div>
     <div class="festival-card featured">
       <img src="buddha.webp" alt="buddha jayanti" class="tour-img">
@@ -101,7 +150,6 @@
       <p><strong>Date:</strong> May 15, 2024</p>
       <p>Commemoration of Buddha’s birth with special rituals.</p>
       <span class="tag">Featured</span>
-      <button>Reserve Spot</button>
     </div>
     <div class="festival-card cultural">
       <img src="drukpa.jpg" alt="drukpa" class="tour-img">
@@ -110,7 +158,6 @@
       <p><strong>Date:</strong> March 25, 2024</p>
       <p>Folk dances celebrating the divine madman’s legacy.</p>
       <span class="tag">Cultural Festival</span>
-      <button>Share</button>
     </div>
     <div class="festival-card religious">
       <img src="saga.jpg" alt="saga dawa" class="tour-img">
@@ -119,20 +166,19 @@
       <p><strong>Date:</strong> June 2024</p>
       <p>Community offerings and rituals throughout the month.</p>
       <span class="tag">Religious Ceremony</span>
-      <button>Reserve Spot</button>
     </div>
   </div>
 </section>
 
 
 <!-- Featured Virtual Tours -->
-<section class="virtual-tours">
+<section class="virtual-tours" id="tours">
   <h2>Featured Virtual Tours</h2>
   <div class="tour-grid">
 
     <!-- Rumtek Monastery -->
     <div class="tour-card">
-      <img src="rumtek.jpg" alt="Rumtek Monastery" class="tour-img">
+      <img src="rum.jpg" alt="Rumtek Monastery" class="tour-img">
       <h3>Rumtek Monastery</h3>
       <p><strong>Location:</strong> East Sikkim</p>
       <p><strong>Duration:</strong> 45 min</p>
@@ -187,10 +233,11 @@
 
 
 <!-- Digital Archives Section -->
-<section class="archives-section">
+<section class="archives-section" id="archives">
   <h2>Digital Archives</h2>
   <div class="archive-grid">
     <div class="archive-card">
+      <img src="cha.jpg" alt="drukpa" class="tour-img">
       <h3>Chants & Rituals</h3>
       <a href="http://127.0.0.1:3000/chants/index.html" class="archive-button" target="_blank">Explore Chants</a>
     </div>

@@ -1,4 +1,4 @@
-console.log("MonasteryNet loaded");
+/*console.log("MonasteryNet loaded");
 
 const cardsContainer = document.getElementById('monasteryCards');
 if (cardsContainer) {
@@ -23,4 +23,21 @@ fetch('http://localhost:3000/api/monasteries')
     if (cardsContainer) {
       cardsContainer.innerHTML = "<p>Failed to load monasteries.</p>";
     }
-  });
+  });*/
+  // Example React: App.js
+import { useEffect, useState } from "react";
+
+function App() {
+  const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    fetch("http://localhost:5000/api/test")
+      .then(res => res.json())
+      .then(data => setMessage(data.message))
+      .catch(err => console.error(err));
+  }, []);
+
+  return <div>{message}</div>;
+}
+
+export default App;

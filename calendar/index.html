@@ -1,66 +1,25 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Sikkim Calendar — iOS style</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sikkim Festival Calendar</title>
+  <link rel="stylesheet" href="calendar.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="app-bg"></div>
 
-  <header class="app-header glass">
-    <div class="left">
-      <h1 id="title">Sikkim Calendar</h1>
-      <div class="controls">
-        <select id="lang" aria-label="Language selector">
-          <option value="en">English</option>
-          <option value="hi">हिन्दी</option>
-          <option value="bn">বাংলা</option>
-          <option value="sk">Sikkimese</option>
-          <option value="ne">नेपाली</option>
-        </select>
-
-        <div class="view-switch">
-          <button id="viewBtn" aria-haspopup="true" aria-expanded="false">Monthly ▾</button>
-          <ul id="viewList" class="dropdown" role="menu" aria-hidden="true">
-            <li data-view="monthly" role="menuitem">Monthly</li>
-            <li data-view="weekly" role="menuitem">Weekly</li>
-            <li data-view="yearly" role="menuitem">Yearly</li>
-          </ul>
-        </div>
-      </div>
+  <section class="calendar-section">
+    <h1>Sikkim Festival Calendar 2025</h1>
+    <div class="calendar-header">
+      <button id="prevMonth">&lt;</button>
+      <span id="monthYear"></span>
+      <button id="nextMonth">&gt;</button>
     </div>
+    <div id="calendar"></div>
+    <div id="festival-info" class="festival-info">Hover over a festival date to see details.</div>
+  </section>
 
-    <div class="right nav">
-      <button id="prev" aria-label="Previous">◀</button>
-      <button id="today" aria-label="Today">Today</button>
-      <button id="next" aria-label="Next">▶</button>
-    </div>
-  </header>
-
-  <main class="center-stage">
-    <section id="calendarCard" class="calendar-card glass">
-      <div class="card-header">
-        <h2 id="monthYear">Month Year</h2>
-        <div id="subHeader" class="sub-header">Weekday names</div>
-      </div>
-
-      <div id="calendarContainer" class="calendar-container view-month">
-        <!-- Calendar grid injected by JS -->
-      </div>
-    </section>
-  </main>
-
-  <!-- Event Modal -->
-  <div id="modalOverlay" class="modal-overlay hidden" aria-hidden="true">
-    <div class="modal glass" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <button id="modalClose" class="modal-close" aria-label="Close">✕</button>
-      <h3 id="modalTitle"></h3>
-      <p id="modalBody"></p>
-    </div>
-  </div>
-
-  <script src="main.js" defer></script>
+  <script src="calendar.js"></script>
 </body>
 </html>
