@@ -14,15 +14,35 @@ const monasteries = [
   { name: "Kartok Monastery", coords: [27.301, 88.236], location: "Yuksom, West Sikkim", established: "18th Century", rating: 4.3, sect: "Nyingma Sect", tourUrl: "#" },
   { name: "Zong Dog Palri Fo Brang Monastery", coords: [27.043, 88.266], location: "Kalimpong (Near Sikkim)", established: "1976", rating: 4.5, sect: "Buddhist", tourUrl: "#" },
   { name: "Ngadak Monastery", coords: [27.296, 88.273], location: "Namchi, South Sikkim", established: "17th Century", rating: 4.2, sect: "Nyingma Sect", tourUrl: "#" },
-  { name: "Tholung Monastery", coords: [27.707, 88.545], location: "Dzongu, North Sikkim", established: "1789", rating: 4.4, sect: "Nyingma Sect", tourUrl: "#" }
+  { name: "Tholung Monastery", coords: [27.707, 88.545], location: "Dzongu, North Sikkim", established: "1789", rating: 4.4, sect: "Nyingma Sect", tourUrl: "#" },
+
+  // Newly added monasteries
+  { name: "Lingdum Monastery", coords: [27.354, 88.695], location: "Near Ranka, East Sikkim", established: "1998", rating: 4.7, sect: "Zurman Kagyu Sect", tourUrl: "#" },
+  { name: "Tashilhunpo Monastery", coords: [27.170, 88.880], location: "Shigatse, Tibet", established: "1447", rating: 4.8, sect: "Gelugpa Sect", tourUrl: "#" },
+  { name: "Lachung Monastery", coords: [27.690, 88.741], location: "North Sikkim", established: "1880", rating: 4.4, sect: "Nyingma Sect", tourUrl: "#" },
+  { name: "Phensang Monastery", coords: [27.413, 88.566], location: "North Sikkim", established: "1721", rating: 4.5, sect: "Nyingma Sect", tourUrl: "#" },
+  { name: "Sanga Choeling Monastery", coords: [27.316, 88.266], location: "West Sikkim", established: "1697", rating: 4.7, sect: "Nyingma Sect", tourUrl: "#" },
+  { name: "Ralong Monastery", coords: [27.140, 88.170], location: "South Sikkim", established: "1690", rating: 4.4, sect: "Kagyü Sect", tourUrl: "#" },
+  { name: "Lingdum Ranka Monastery", coords: [27.354, 88.695], location: "East Sikkim", established: "1998", rating: 4.7, sect: "Zurman Kagyu Sect", tourUrl: "#" },
+  { name: "Ngadak Monastery", coords: [27.296, 88.273], location: "Namchi, South Sikkim", established: "17th Century", rating: 4.2, sect: "Nyingma Sect", tourUrl: "#" }
 ];
 
 // Initialize map
 const map = L.map('sikkimMap').setView([27.3, 88.5], 9);
 
-// Add OpenStreetMap tiles
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+// Base layers
+const osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; OpenStreetMap contributors'
+}).addTo(map);
+
+const satellite = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+  attribution: '&copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye'
+});
+
+// Add layer control
+L.control.layers({
+  "Street Map": osm,
+  "Satellite View": satellite
 }).addTo(map);
 
 // Store markers for access later
